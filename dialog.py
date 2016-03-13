@@ -1,5 +1,10 @@
+import re
+import transaction
+
+
 class Dialog:
     _unique_tag = 0
+    re_branch = re.compile("(?:Via:.*;branch=)(.*)")
 
     def __init__(self, call, from_tag=None):
         """
@@ -17,12 +22,17 @@ class Dialog:
             self.to_tag = self._unique_tag
             self._unique_tag += 1
         else:
-            self.from_tag = self._unique_tag
+            self.from_tag = str(self._unique_tag) + \
+                            "@%s:%s" % (self.call.source_endpoint.ip, self.call.source_endpoint.port)
             self._unique_tag += 1
             # Cannot determine to tag until the other side has responded
             self.to_tag = None
 
         self.transactions = {}  # branch: transaction.Transaction
+
+    def new_transaction(self, branch=None):
+        new_transaction = transaction.Transaction(self, branch)
+        self.transactions[new_transaction.branch] = new_transaction
 
     def receive(self, raw_message):
         """
@@ -31,3 +41,8 @@ class Dialog:
         :param str raw_message:
         """
 
+        branch = self.re_branch.match(raw_message).group(0)
+
+        self.new_transaction(branch)
+
+        self.transactions[branch].receive(raw_message)

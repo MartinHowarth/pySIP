@@ -1,10 +1,15 @@
+import dialog
+import re
+
+
 class Call:
     _unique_call_id = 0
+    re_from_tag = re.compile("(?:From:.*>;tag=)(.*)")
 
-    def __init__(self, phone, source_endpoint, destination_endpoint, call_id=None, subject="Default"):
+    def __init__(self, phone, source_endpoint, destination_endpoint, call_id=None, subject=None):
         """
 
-        :param phone.Phone phone:
+        :param useragent.UserAgent phone:
         :param endpoint.Endpoint source_endpoint:
         :param endpoint.Endpoint destination_endpoint:
         :param call_id:
@@ -23,10 +28,14 @@ class Call:
 
         self.source_endpoint = source_endpoint
         self.destination_endpoint = destination_endpoint
-        self.subject = subject
+        self.subject = subject if subject is not None else "Default"
         self.sdp = ""
 
         self.dialogs = {}  # From_tag: dialog.Dialog
+
+    def new_dialog(self, from_tag=None):
+        new_dialog = dialog.Dialog(self, from_tag)
+        self.dialogs[new_dialog.from_tag] = new_dialog
 
     def receive(self, raw_message):
         """
@@ -35,3 +44,11 @@ class Call:
         :param str raw_message:
         """
 
+        from_tag = self.re_from_tag.match(raw_message).group(0)
+
+        if from_tag in self.dialogs.keys():
+            self.dialogs[from_tag].receive(raw_message)
+        else:
+            self.new_dialog(from_tag)
+
+            self.dialogs[from_tag].receive(raw_message)

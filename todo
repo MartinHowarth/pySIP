@@ -1,1 +1,3 @@
-- Deal with Via headers
+Deal with multiple via headers
+
+CSeq is wrong
