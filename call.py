@@ -6,17 +6,17 @@ class Call:
     _unique_call_id = 0
     re_from_tag = re.compile("(?:From:.*>;tag=)(.*)")
 
-    def __init__(self, phone, source_endpoint, destination_endpoint, call_id=None, subject=None):
+    def __init__(self, user_agent, destination_endpoint, source_endpoint=None, call_id=None, subject=None):
         """
 
-        :param useragent.UserAgent phone:
-        :param endpoint.Endpoint source_endpoint:
+        :param useragent.UserAgent user_agent:
         :param endpoint.Endpoint destination_endpoint:
+        :param endpoint.Endpoint source_endpoint:
         :param call_id:
         :param subject:
         :return:
         """
-        self.phone = phone
+        self.user_agent = user_agent
 
         # Call ID must be unique, so use and increment a global call id. If we're receiving a call then the call id is
         # specified by the remote party
@@ -26,7 +26,7 @@ class Call:
             self.call_id = self._unique_call_id
             self._unique_call_id += 1
 
-        self.source_endpoint = source_endpoint
+        self.source_endpoint = (source_endpoint if source_endpoint is not None else self.user_agent.endpoint)
         self.destination_endpoint = destination_endpoint
         self.subject = subject if subject is not None else "Default"
         self.sdp = ""

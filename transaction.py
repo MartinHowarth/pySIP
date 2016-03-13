@@ -13,7 +13,7 @@ class Transaction:
         """
         self.dialog = dialog
 
-        if branch is not None:
+        if branch is None:
             self.branch = "z9hG4bK" + "_" + str(self._branch_counter)
             self._branch_counter += 1
         else:

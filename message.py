@@ -11,7 +11,7 @@ class Message:
     re_body = re.compile("(?:\n\n)(.*)")
 
     _request_line_initial = "%(type)s sip:%(destination_number)s@%(domain)s SIP/2.0"
-    _request_line_response = "SIP/2.0 %(response_number) %(type)s"
+    _request_line_response = "SIP/2.0 %(response_number)s %(type)s"
     _via_line = "Via: SIP/2.0/%(transport)s %(via_ip)s:%(via_port)s;branch=%(branch)s"
     _from_line = "From: %(user_agent)s <sip:%(source_number)s@%(source_ip)s:%(source_port)s>"
     _from_tag = ";tag=%(from_tag)s"
@@ -42,10 +42,10 @@ class Message:
         self.destination_port = transaction.dialog.call.destination_endpoint.port
         self.via_ip = transaction.dialog.call.destination_endpoint.via_ip
         self.via_port = transaction.dialog.call.destination_endpoint.via_port
-        self.transport = transaction.dialog.call.endpoint.transport
+        self.transport = transaction.dialog.call.destination_endpoint.transport
         self.source_number = transaction.dialog.call.source_endpoint.number
         self.domain = transaction.dialog.call.destination_endpoint.domain
-        self.user_agent = transaction.dialog.call.phone.endpoint.user_agent
+        self.user_agent = transaction.dialog.call.user_agent.endpoint.user_agent
         self.destination_number = transaction.dialog.call.destination_endpoint.number
         self.call_id = transaction.dialog.call.call_id
         self.subject = transaction.dialog.call.subject

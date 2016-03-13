@@ -7,6 +7,6 @@ class Endpoint:
         self.domain = domain
         self.user_agent = user_agent
 
-        self.via_ip = via_ip if not None else ip
-        self.via_port = via_port if not None else port
+        self.via_ip = via_ip if via_ip is not None else ip
+        self.via_port = via_port if via_port is not None else port
         self.transport = transport
