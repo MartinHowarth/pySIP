@@ -1,0 +1,26 @@
+PRACK sip:13162033001@maxwell.datcon.co.uk SIP/2.0
+Via: SIP/2.0/UDP 10.248.0.116:5060;branch=z9hG4bK+557332b7540503056c34a696e8e581a21+sip+2+a64e4d94
+Call-ID: 0gQAAC8WAAACBAAALxYAAM1vi5ZfkzGVn2zNlC+gBEAE1A+T1NFMJjLsLLgzhAXOH+ZYIZauUayQPMEv3HgXNtujDwTslXJKquwnvH2byNo-@10.248.0.116
+From: "PhonerLite" <sip:3162033002@maxwell.datcon.co.uk>;tag=10.248.0.116+2+70411f98+88e7245d
+To: <sip:13162033001@maxwell.datcon.co.uk>;tag=maxwell.datcon.co.uk+1+35081a+d7dfe03a
+CSeq: 7 PRACK
+RAck: 985279610 6 INVITE
+Content-Length: 0
+Max-Forwards: 69
+User-Agent: SIPPER for PhonerLite
+
+
+
+
+
+SIP/2.0 200 OK
+Call-ID: 0gQAAC8WAAACBAAALxYAAM1vi5ZfkzGVn2zNlC+gBEAE1A+T1NFMJjLsLLgzhAXOH+ZYIZauUayQPMEv3HgXNtujDwTslXJKquwnvH2byNo-@10.248.0.116
+CSeq: 7 PRACK
+From: "PhonerLite" <sip:3162033002@maxwell.datcon.co.uk>;tag=10.248.0.116+2+70411f98+88e7245d
+To: <sip:13162033001@maxwell.datcon.co.uk>;tag=maxwell.datcon.co.uk+1+35081a+d7dfe03a
+Via: SIP/2.0/UDP 10.248.0.116:5060;branch=z9hG4bK+557332b7540503056c34a696e8e581a21+sip+2+a64e4d94
+Server: DC-SIP/2.0
+Organization: Metaswitch Networks
+Allow-Events: message-summary, refer, dialog, line-seize, presence, call-info, as-feature-event, calling-name
+Supported: resource-priority, siprec, 100rel
+Content-Length: 0

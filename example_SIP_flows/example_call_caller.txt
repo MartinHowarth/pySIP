@@ -1,0 +1,182 @@
+INVITE sip:13162033002@maxwell.datcon.co.uk SIP/2.0
+Via: SIP/2.0/UDP 10.226.0.224:5060;branch=z9hG4bKA4AD1EDE4AC5A5A37E544B85141E9D1127;rport
+From: "3162033001" <sip:3162033001@maxwell.datcon.co.uk>;tag=43C04316998D80D9A0DCDD6BAE678D2C
+To: <sip:13162033002@maxwell.datcon.co.uk>
+Contact: <sip:3162033001@10.226.0.224:5060;transport=udp>
+Call-ID: 726986AC8CEBB1EE7CFBB5EE37ED50C51815D@maxwell.datcon.co.uk
+User-Agent: Kapanga Softphone Desktop Windows 1.00/2182d+1434465644_001B21D0ABAE_803F5D094372_002564DF5EF7 (not registered)
+Supported: timer, replaces
+CSeq: 1 INVITE
+Max-Forwards: 70
+Session-Expires: 1800;refresher=uac
+Allow: INVITE, INFO, PRACK, ACK, BYE, CANCEL, OPTIONS, NOTIFY, REGISTER, SUBSCRIBE, REFER, PUBLISH, UPDATE, MESSAGE
+Content-Type: application/sdp
+Content-Length: 213
+
+v=0
+o=3162033001 1457965458 1457965929 IN IP4 10.226.0.224
+s=Kapanga [1457965458]
+c=IN IP4 10.226.0.224
+t=0 0
+m=audio 5112 RTP/AVP 8
+a=rtpmap:8 PCMA/8000
+a=sendrecv
+a=rtcp:5113
+a=maxptime:30
+a=ptime:30
+
+
+
+SIP/2.0 100 Trying
+Call-ID: 726986AC8CEBB1EE7CFBB5EE37ED50C51815D@maxwell.datcon.co.uk
+CSeq: 1 INVITE
+From: "3162033001" <sip:3162033001@maxwell.datcon.co.uk>;tag=43C04316998D80D9A0DCDD6BAE678D2C
+To: <sip:13162033002@maxwell.datcon.co.uk>;tag=sip+3+4dbd0010+137df91f
+Via: SIP/2.0/UDP 10.226.0.224:5060;received=10.226.0.224;rport=5060;branch=z9hG4bKA4AD1EDE4AC5A5A37E544B85141E9D1127
+Server: SIP/2.0
+Content-Length: 0
+
+
+
+SIP/2.0 200 OK
+Call-ID: 726986AC8CEBB1EE7CFBB5EE37ED50C51815D@maxwell.datcon.co.uk
+CSeq: 1 INVITE
+From: "3162033001" <sip:3162033001@maxwell.datcon.co.uk>;tag=43C04316998D80D9A0DCDD6BAE678D2C
+To: <sip:13162033002@maxwell.datcon.co.uk>;tag=sip+3+4dbd0010+137df91f
+Via: SIP/2.0/UDP 10.226.0.224:5060;received=10.226.0.224;rport=5060;branch=z9hG4bKA4AD1EDE4AC5A5A37E544B85141E9D1127
+Content-Length: 158
+Supported: resource-priority, siprec, 100rel
+Contact: <sip:2d4644680d2b27bc7c508c17712f651b@10.226.128.111:9092>
+Content-Type: application/sdp
+Server: DC-SIP/2.0
+Organization: Metaswitch Networks
+Allow-Events: message-summary, refer, dialog, line-seize, presence, call-info, as-feature-event, calling-name
+Allow: INVITE, ACK, CANCEL, BYE, REGISTER, OPTIONS, PRACK, UPDATE, SUBSCRIBE, NOTIFY, REFER, INFO, PUBLISH
+Accept-Encoding: identity
+Accept: application/sdp, application/simple-message-summary, message/sipfrag, application/isup, application/x-simple-call-service-info, multipart/mixed, application/broadsoft, application/hook-flash, application/vq-rtcpxr, application/media_control+xml,text/plain, application/x-as-feature-event+xml, application/vnd.telekom.service_indication+xml, application/calling-name-info
+
+v=0
+o=- 139071402241791 139071402241791 IN IP4 10.226.128.85
+s=-
+c=IN IP4 10.226.128.85
+t=0 0
+m=audio 16592 RTP/AVP 8
+a=rtpmap:8 PCMA/8000
+a=ptime:20
+
+
+
+
+ACK sip:2d4644680d2b27bc7c508c17712f651b@10.226.128.111:9092 SIP/2.0
+Via: SIP/2.0/UDP 10.226.0.224:5060;branch=z9hG4bKA4AD1EDE4AC5A5A37E544B85141E9D1127
+From: "3162033001" <sip:3162033001@maxwell.datcon.co.uk>;tag=43C04316998D80D9A0DCDD6BAE678D2C
+To: <sip:13162033002@maxwell.datcon.co.uk>;tag=sip+3+4dbd0010+137df91f
+Contact: <sip:3162033001@10.226.0.224:5060;transport=udp>
+Call-ID: 726986AC8CEBB1EE7CFBB5EE37ED50C51815D@maxwell.datcon.co.uk
+User-Agent: Kapanga Softphone Desktop Windows 1.00/2182d+1434465644_001B21D0ABAE_803F5D094372_002564DF5EF7 (not registered)
+CSeq: 1 ACK
+Max-Forwards: 70
+Content-Length: 0
+
+
+
+
+
+
+============== reinvite========
+INVITE sip:3162033001@10.226.0.224:5060;transport=udp SIP/2.0
+Via: SIP/2.0/UDP 10.226.128.111:9092;branch=z9hG4bK+02ee9e488e4951c953c4dfbba4edf6971+sip+3+a64e4e59
+Call-ID: 726986AC8CEBB1EE7CFBB5EE37ED50C51815D@maxwell.datcon.co.uk
+From: <sip:13162033002@maxwell.datcon.co.uk>;tag=sip+3+4dbd0010+137df91f
+To: "3162033001" <sip:3162033001@maxwell.datcon.co.uk>;tag=43C04316998D80D9A0DCDD6BAE678D2C
+CSeq: 306088979 INVITE
+Expires: 180
+Content-Length: 158
+Supported: resource-priority,siprec, 100rel
+Contact: <sip:2d4644680d2b27bc7c508c17712f651b@10.226.128.111:9092>
+Content-Type: application/sdp
+Allow-Events: message-summary, refer, dialog, line-seize, presence, call-info, as-feature-event, calling-name
+Max-Forwards: 69
+Organization: Metaswitch Networks
+
+v=0
+o=- 139071402241791 139071402241791 IN IP4 10.226.128.85
+s=-
+c=IN IP4 10.226.128.85
+t=0 0
+m=audio 16592 RTP/AVP 8
+a=rtpmap:8 PCMA/8000
+a=ptime:20
+
+
+
+
+SIP/2.0 200 OK
+Via: SIP/2.0/UDP 10.226.128.111:9092;branch=z9hG4bK+02ee9e488e4951c953c4dfbba4edf6971+sip+3+a64e4e59
+User-Agent: Kapanga Softphone Desktop Windows 1.00/2182d+1434465644_001B21D0ABAE_803F5D094372_002564DF5EF7 (not registered)
+From: <sip:13162033002@maxwell.datcon.co.uk>;tag=sip+3+4dbd0010+137df91f
+To: "3162033001" <sip:3162033001@maxwell.datcon.co.uk>;tag=43C04316998D80D9A0DCDD6BAE678D2C
+Call-ID: 726986AC8CEBB1EE7CFBB5EE37ED50C51815D@maxwell.datcon.co.uk
+CSeq: 306088979 INVITE
+Contact: <sip:3162033001@10.226.0.224:5060;transport=udp>
+Supported: timer, replaces
+Allow: INVITE, INFO, PRACK, ACK, BYE, CANCEL, OPTIONS, NOTIFY, REGISTER, SUBSCRIBE, REFER, PUBLISH, UPDATE, MESSAGE
+Content-Type: application/sdp
+Content-Length: 200
+
+v=0
+o=3162033001 1457965458 1457965929 IN IP4 10.226.0.224
+s=Kapanga [1457965458]
+c=IN IP4 10.226.0.224
+t=0 0
+m=audio 5112 RTP/AVP 8
+a=rtpmap:8 PCMA/8000
+a=sendrecv
+a=maxptime:20
+a=ptime:20
+
+
+
+ACK sip:3162033001@10.226.0.224:5060;transport=udp SIP/2.0
+Via: SIP/2.0/UDP 10.226.128.111:9092;branch=z9hG4bK+ff4ab28e3cfec9104fb703e3f9aab0c61+sip+3+a64e4e5a
+Call-ID: 726986AC8CEBB1EE7CFBB5EE37ED50C51815D@maxwell.datcon.co.uk
+From: <sip:13162033002@maxwell.datcon.co.uk>;tag=sip+3+4dbd0010+137df91f
+To: "3162033001" <sip:3162033001@maxwell.datcon.co.uk>;tag=43C04316998D80D9A0DCDD6BAE678D2C
+CSeq: 306088979 ACK
+Contact: <sip:2d4644680d2b27bc7c508c17712f651b@10.226.128.111:9092>
+Content-Length: 0
+Allow-Events: message-summary, refer, dialog, line-seize, presence, call-info, as-feature-event, calling-name
+Max-Forwards: 69
+Organization: Metaswitch Networks
+
+
+
+
+
+
+
+BYE sip:2d4644680d2b27bc7c508c17712f651b@10.226.128.111:9092 SIP/2.0
+Via: SIP/2.0/UDP 10.226.0.224:5060;branch=z9hG4bK06A9CE153DA24A035EBC64ADB03A2C1129;rport
+From: "3162033001" <sip:3162033001@maxwell.datcon.co.uk>;tag=43C04316998D80D9A0DCDD6BAE678D2C
+To: <sip:13162033002@maxwell.datcon.co.uk>;tag=sip+3+4dbd0010+137df91f
+Contact: <sip:3162033001@10.226.0.224:5060;transport=udp>
+Call-ID: 726986AC8CEBB1EE7CFBB5EE37ED50C51815D@maxwell.datcon.co.uk
+User-Agent: Kapanga Softphone Desktop Windows 1.00/2182d+1434465644_001B21D0ABAE_803F5D094372_002564DF5EF7 (not registered)
+Supported: timer, replaces
+CSeq: 2 BYE
+Max-Forwards: 70
+Content-Length: 0
+
+
+SIP/2.0 200 OK
+Call-ID: 726986AC8CEBB1EE7CFBB5EE37ED50C51815D@maxwell.datcon.co.uk
+CSeq: 2 BYE
+From: "3162033001" <sip:3162033001@maxwell.datcon.co.uk>;tag=43C04316998D80D9A0DCDD6BAE678D2C
+To: <sip:13162033002@maxwell.datcon.co.uk>;tag=sip+3+4dbd0010+137df91f
+Via: SIP/2.0/UDP 10.226.0.224:5060;received=10.226.0.224;rport=5060;branch=z9hG4bK06A9CE153DA24A035EBC64ADB03A2C1129
+Content-Length: 0
+Supported: resource-priority, siprec, 100rel
+Contact: <sip:10.226.128.111:9092>
+Server: DC-SIP/2.0
+Organization: Metaswitch Networks
+Allow-Events: message-summary, refer, dialog, line-seize, presence, call-info, as-feature-event, calling-name

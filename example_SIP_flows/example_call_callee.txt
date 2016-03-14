@@ -1,0 +1,192 @@
+INVITE sip:3162033002@10.226.0.229:64723 SIP/2.0
+Via: SIP/2.0/UDP 10.226.128.111:5060;branch=z9hG4bK+68a1bfe2b6da28fe65f68c3f12e768081+sip+4+a64e4d48
+From: "Anonymous" <sip:anonymous@maxwell.datcon.co.uk>;tag=10.226.128.111+4+95d67f28+72007da3
+To: <sip:3162033002@maxwell.datcon.co.uk>
+CSeq: 895441154 INVITE
+Expires: 180
+Content-Length: 478
+Supported: resource-priority,siprec, 100rel
+Contact: <sip:6eb5d2c55c0798b5dbdf806a3944b7a6@10.226.128.111:5060>
+Content-Type: application/sdp
+Allow-Events: message-summary, refer, dialog, line-seize, presence, call-info, as-feature-event, calling-name
+Call-ID: 0gQAAC8WAAACBAAALxYAAJjOfIFMoHAoOlo8PlC+3CTAPfHdgoXfux/efGS5cjuf@10.226.128.111
+Organization: Metaswitch Networks
+Max-Forwards: 67
+
+v=0
+o=- 60486385626640 60486385626640 IN IP4 10.226.128.85
+s=-
+c=IN IP4 10.226.128.85
+t=0 0
+m=audio 16594 RTP/AVP 8 0 18 96 9 97 98 99 100 2 101
+a=rtpmap:8 PCMA/8000
+a=rtpmap:0 PCMU/8000
+a=rtpmap:18 G729/8000
+a=rtpmap:96 SILK/8000
+a=rtpmap:9 G722/8000
+a=rtpmap:97 AMR/8000
+a=rtpmap:98 AMR-WB/16000
+a=rtpmap:99 G726-16/8000
+a=rtpmap:100 G726-24/8000
+a=rtpmap:2 G726-32/8000
+a=rtpmap:101 G726-40/8000
+a=fmtp:97 octet-align=1
+a=fmtp:98 octet-align=1
+a=ptime:20
+
+
+
+SIP/2.0 100 Trying
+Via: SIP/2.0/UDP 10.226.128.111:5060;branch=z9hG4bK+68a1bfe2b6da28fe65f68c3f12e768081+sip+4+a64e4d48
+From: "Anonymous" <sip:anonymous@maxwell.datcon.co.uk>;tag=10.226.128.111+4+95d67f28+72007da3
+To: <sip:3162033002@maxwell.datcon.co.uk>
+Call-ID: 0gQAAC8WAAACBAAALxYAAJjOfIFMoHAoOlo8PlC+3CTAPfHdgoXfux/efGS5cjuf@10.226.128.111
+CSeq: 895441154 INVITE
+Allow: INVITE, OPTIONS, ACK, BYE, CANCEL, INFO, NOTIFY, MESSAGE, UPDATE
+Server: SIPPER for PhonerLite
+Content-Length: 0
+
+
+
+SIP/2.0 200 OK
+Via: SIP/2.0/UDP 10.226.128.111:5060;branch=z9hG4bK+68a1bfe2b6da28fe65f68c3f12e768081+sip+4+a64e4d48
+From: "Anonymous" <sip:anonymous@maxwell.datcon.co.uk>;tag=10.226.128.111+4+95d67f28+72007da3
+To: <sip:3162033002@maxwell.datcon.co.uk>;tag=009133345fe8e511b2f78be06307d41e
+Call-ID: 0gQAAC8WAAACBAAALxYAAJjOfIFMoHAoOlo8PlC+3CTAPfHdgoXfux/efGS5cjuf@10.226.128.111
+CSeq: 895441154 INVITE
+Contact: <sip:3162033002@10.226.0.229:64723>
+Content-Type: application/sdp
+Allow: INVITE, OPTIONS, ACK, BYE, CANCEL, INFO, NOTIFY, MESSAGE, UPDATE
+Supported: replaces, from-change
+Server: SIPPER for PhonerLite
+Content-Length:   176
+
+v=0
+o=- 3414686264 1 IN IP4 10.226.0.229
+s=SIPPER for PhonerLite
+c=IN IP4 10.226.0.229
+t=0 0
+m=audio 64725 RTP/AVP 8
+a=rtpmap:8 PCMA/8000
+a=ssrc:3697329743
+a=sendrecv
+
+
+
+ACK sip:3162033002@10.226.0.229:64723 SIP/2.0
+Via: SIP/2.0/UDP 10.226.128.111:5060;branch=z9hG4bK+7e51c94cab1881134d401be3486d2b351+sip+4+a64e4d49
+Call-ID: 0gQAAC8WAAACBAAALxYAAJjOfIFMoHAoOlo8PlC+3CTAPfHdgoXfux/efGS5cjuf@10.226.128.111
+From: "Anonymous" <sip:anonymous@maxwell.datcon.co.uk>;tag=10.226.128.111+4+95d67f28+72007da3
+To: <sip:3162033002@maxwell.datcon.co.uk>;tag=009133345fe8e511b2f78be06307d41e
+CSeq: 895441154 ACK
+Contact: <sip:6eb5d2c55c0798b5dbdf806a3944b7a6@10.226.128.111:5060>
+Content-Length: 0
+Allow-Events: message-summary, refer, dialog, line-seize, presence, call-info, as-feature-event, calling-name
+Max-Forwards: 69
+Organization: Metaswitch Networks
+
+
+======================== reinvite =========================
+
+INVITE sip:3162033002@10.226.0.229:64723 SIP/2.0
+Via: SIP/2.0/UDP 10.226.128.111:5060;branch=z9hG4bK+b8fc581d1bb16b1de4d58808cd1a5edf1+sip+4+a64e4d4a
+Call-ID: 0gQAAC8WAAACBAAALxYAAJjOfIFMoHAoOlo8PlC+3CTAPfHdgoXfux/efGS5cjuf@10.226.128.111
+From: "Anonymous" <sip:anonymous@maxwell.datcon.co.uk>;tag=10.226.128.111+4+95d67f28+72007da3
+To: <sip:3162033002@maxwell.datcon.co.uk>;tag=009133345fe8e511b2f78be06307d41e
+CSeq: 895441155 INVITE
+Expires: 180
+Content-Length: 478
+Supported: resource-priority,siprec, 100rel
+Contact: <sip:6eb5d2c55c0798b5dbdf806a3944b7a6@10.226.128.111:5060>
+Content-Type: application/sdp
+Allow-Events: message-summary, refer, dialog, line-seize, presence, call-info, as-feature-event, calling-name
+Max-Forwards: 69
+Organization: Metaswitch Networks
+
+v=0
+o=- 60486385626640 60486385626640 IN IP4 10.226.128.85
+s=-
+c=IN IP4 10.226.128.85
+t=0 0
+m=audio 16594 RTP/AVP 8 0 18 96 9 97 98 99 100 2 101
+a=rtpmap:8 PCMA/8000
+a=rtpmap:0 PCMU/8000
+a=rtpmap:18 G729/8000
+a=rtpmap:96 SILK/8000
+a=rtpmap:9 G722/8000
+a=rtpmap:97 AMR/8000
+a=rtpmap:98 AMR-WB/16000
+a=rtpmap:99 G726-16/8000
+a=rtpmap:100 G726-24/8000
+a=rtpmap:2 G726-32/8000
+a=rtpmap:101 G726-40/8000
+a=fmtp:97 octet-align=1
+a=fmtp:98 octet-align=1
+a=ptime:20
+
+
+
+SIP/2.0 200 OK
+Via: SIP/2.0/UDP 10.226.128.111:5060;branch=z9hG4bK+b8fc581d1bb16b1de4d58808cd1a5edf1+sip+4+a64e4d4a
+From: "Anonymous" <sip:anonymous@maxwell.datcon.co.uk>;tag=10.226.128.111+4+95d67f28+72007da3
+To: <sip:3162033002@maxwell.datcon.co.uk>;tag=009133345fe8e511b2f78be06307d41e
+Call-ID: 0gQAAC8WAAACBAAALxYAAJjOfIFMoHAoOlo8PlC+3CTAPfHdgoXfux/efGS5cjuf@10.226.128.111
+CSeq: 895441155 INVITE
+Contact: <sip:3162033002@10.226.0.229:64723>
+Content-Type: application/sdp
+Allow: INVITE, OPTIONS, ACK, BYE, CANCEL, INFO, NOTIFY, MESSAGE, UPDATE
+Supported: replaces, from-change
+Server: SIPPER for PhonerLite
+Content-Length:   176
+
+v=0
+o=- 3414686264 2 IN IP4 10.226.0.229
+s=SIPPER for PhonerLite
+c=IN IP4 10.226.0.229
+t=0 0
+m=audio 64725 RTP/AVP 8
+a=rtpmap:8 PCMA/8000
+a=ssrc:3697329743
+a=sendrecv
+
+
+
+ACK sip:3162033002@10.226.0.229:64723 SIP/2.0
+Via: SIP/2.0/UDP 10.226.128.111:5060;branch=z9hG4bK+cb0bf007ac3bcfee3962359bb4daaf511+sip+4+a64e4d4b
+Call-ID: 0gQAAC8WAAACBAAALxYAAJjOfIFMoHAoOlo8PlC+3CTAPfHdgoXfux/efGS5cjuf@10.226.128.111
+From: "Anonymous" <sip:anonymous@maxwell.datcon.co.uk>;tag=10.226.128.111+4+95d67f28+72007da3
+To: <sip:3162033002@maxwell.datcon.co.uk>;tag=009133345fe8e511b2f78be06307d41e
+CSeq: 895441155 ACK
+Contact: <sip:6eb5d2c55c0798b5dbdf806a3944b7a6@10.226.128.111:5060>
+Content-Length: 0
+Allow-Events: message-summary, refer, dialog, line-seize, presence, call-info, as-feature-event, calling-name
+Max-Forwards: 69
+Organization: Metaswitch Networks
+
+
+
+
+
+
+BYE sip:3162033002@10.226.0.229:64723 SIP/2.0
+Via: SIP/2.0/UDP 10.226.128.111:5060;branch=z9hG4bK+bfcc8172e1df384da920f91056970da81+sip+4+a64e4d51
+Call-ID: 0gQAAC8WAAACBAAALxYAAJjOfIFMoHAoOlo8PlC+3CTAPfHdgoXfux/efGS5cjuf@10.226.128.111
+From: "Anonymous" <sip:anonymous@maxwell.datcon.co.uk>;tag=10.226.128.111+4+95d67f28+72007da3
+To: <sip:3162033002@maxwell.datcon.co.uk>;tag=009133345fe8e511b2f78be06307d41e
+CSeq: 895441157 BYE
+Content-Length: 0
+Supported: resource-priority, siprec, 100rel
+Allow-Events: message-summary, refer, dialog, line-seize, presence, call-info, as-feature-event, calling-name
+Max-Forwards: 69
+Organization: Metaswitch Networks
+
+
+SIP/2.0 200 OK
+Via: SIP/2.0/UDP 10.226.128.111:5060;branch=z9hG4bK+bfcc8172e1df384da920f91056970da81+sip+4+a64e4d51
+From: "Anonymous" <sip:anonymous@maxwell.datcon.co.uk>;tag=10.226.128.111+4+95d67f28+72007da3
+To: <sip:3162033002@maxwell.datcon.co.uk>;tag=009133345fe8e511b2f78be06307d41e
+Call-ID: 0gQAAC8WAAACBAAALxYAAJjOfIFMoHAoOlo8PlC+3CTAPfHdgoXfux/efGS5cjuf@10.226.128.111
+CSeq: 895441157 BYE
+Contact: <sip:3162033002@10.226.0.229:64723>
+Server: SIPPER for PhonerLite
+Content-Length: 0
