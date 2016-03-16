@@ -21,7 +21,7 @@ class Transaction:
 
         self.messages = []
 
-    def receive(self, raw_message):
+    def parse_message(self, raw_message):
         """
         Takes a SIP message and creates a message.Message object to represent it.
         :param str raw_message:
