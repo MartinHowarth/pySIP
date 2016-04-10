@@ -35,7 +35,7 @@ class Dialog:
         new_transaction = transaction.Transaction(self, branch)
         self.transactions[new_transaction.branch] = new_transaction
 
-    def receive(self, raw_message):
+    def parse_message(self, raw_message):
         """
         Takes a SIP messages, finds the branch and passes the message to the relevant transaction.
         Creates a new transaction if the branch doesn't match an existing transaction.
@@ -43,7 +43,5 @@ class Dialog:
         """
 
         branch = self.re_branch.match(raw_message).group(0)
-
         self.new_transaction(branch)
-
-        self.transactions[branch].receive(raw_message)
+        self.transactions[branch].parse_message(raw_message)

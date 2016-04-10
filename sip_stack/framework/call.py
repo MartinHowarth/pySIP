@@ -42,7 +42,7 @@ class Call:
         new_dialog = Dialog(self, from_tag)
         self.dialogs[new_dialog.from_tag] = new_dialog
 
-    def receive(self, raw_message: str):
+    def parse_message(self, raw_message: str):
         """
         Takes a SIP messages, finds the from tag and passes the message to the relevant dialog.
         Creates a new dialog is the from tag doesn't match an existing dialog.
@@ -52,8 +52,7 @@ class Call:
         from_tag = self.re_from_tag.match(raw_message).group(0)
 
         if from_tag in self.dialogs.keys():
-            self.dialogs[from_tag].receive(raw_message)
+            self.dialogs[from_tag].parse_message(raw_message)
         else:
             self.new_dialog(from_tag)
-
-            self.dialogs[from_tag].receive(raw_message)
+            self.dialogs[from_tag].parse_message(raw_message)
