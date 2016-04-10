@@ -1,17 +1,22 @@
-import dialog
 import re
+
+from sip_stack.dialog import Dialog
+from sip_stack.endpoint import Endpoint
+
+from sip_stack.framework.useragent import UserAgent
 
 
 class Call:
     _unique_call_id = 0
     re_from_tag = re.compile("(?:From:.*>;tag=)(.*)")
 
-    def __init__(self, user_agent, destination_endpoint, source_endpoint=None, call_id=None, subject=None):
+    def __init__(self, user_agent: UserAgent, destination_endpoint: Endpoint, source_endpoint: Endpoint=None,
+                 call_id: str=None, subject: str=None):
         """
 
-        :param useragent.UserAgent user_agent:
-        :param endpoint.Endpoint destination_endpoint:
-        :param endpoint.Endpoint source_endpoint:
+        :param user_agent:
+        :param destination_endpoint:
+        :param source_endpoint:
         :param call_id:
         :param subject:
         :return:
@@ -33,15 +38,15 @@ class Call:
 
         self.dialogs = {}  # From_tag: dialog.Dialog
 
-    def new_dialog(self, from_tag=None):
-        new_dialog = dialog.Dialog(self, from_tag)
+    def new_dialog(self, from_tag: str=None):
+        new_dialog = Dialog(self, from_tag)
         self.dialogs[new_dialog.from_tag] = new_dialog
 
-    def receive(self, raw_message):
+    def receive(self, raw_message: str):
         """
         Takes a SIP messages, finds the from tag and passes the message to the relevant dialog.
         Creates a new dialog is the from tag doesn't match an existing dialog.
-        :param str raw_message:
+        :param raw_message:
         """
 
         from_tag = self.re_from_tag.match(raw_message).group(0)

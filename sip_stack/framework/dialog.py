@@ -1,5 +1,6 @@
 import re
-import transaction
+
+from sip_stack.framework import transaction
 
 
 class Dialog:

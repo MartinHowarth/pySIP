@@ -1,7 +1,7 @@
 class Endpoint:
-    def __init__(self, number, domain=None, ip=None, port=None, user_agent=None,
+    def __init__(self, sip_id, domain=None, ip=None, port=None, user_agent=None,
                  transport="UDP", via_ip=None, via_port=None):
-        self.number = number
+        self.sip_id = sip_id
         self.ip = ip
         self.port = port
         self.domain = domain

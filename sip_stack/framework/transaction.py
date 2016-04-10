@@ -1,13 +1,14 @@
-import message
+from sip_stack.framework import message
+from sip_stack.framework.dialog import Dialog
 
 
 class Transaction:
     _branch_counter = 0
 
-    def __init__(self, dialog, branch=None):
+    def __init__(self, dialog: Dialog, branch: str=None):
         """
 
-        :param dialog.Dialog dialog:
+        :param dialog:
         :param branch:
         :return:
         """
@@ -21,9 +22,9 @@ class Transaction:
 
         self.messages = []
 
-    def receive(self, raw_message):
+    def receive(self, raw_message: str):
         """
         Takes a SIP message and creates a message.Message object to represent it.
-        :param str raw_message:
+        :param raw_message:
         """
         self.messages.append(message.message_factory(self, raw_message))

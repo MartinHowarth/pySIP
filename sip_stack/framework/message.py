@@ -1,7 +1,9 @@
 import re
 
+from sip_stack.framework.transaction import Transaction
 
-class Message:
+
+class SipMessage:
     re_message_type = re.compile("([A-Z]{1,10})(?![\/:A-Za-z])")
     re_content_type = re.compile("(?:Content-Type:)[ ]?(.*)")
     re_content_length = re.compile("(?:Content-Length:)[ ]?(.*)")
@@ -26,12 +28,12 @@ class Message:
     _content_length_line = "Content-Length: %(content_length)s"
     _body = "\n%(body)s"
 
-    def __init__(self, transaction, message_type, body=None, response_number=None):
+    def __init__(self, transaction: Transaction, message_type: str, body: str=None, response_number: int=None):
         """
 
-        :param transaction.Transaction transaction:
-        :param str message_type:
-        :param int response_number:
+        :param transaction:
+        :param message_type:
+        :param response_number:
         :return:
         """
         self._message = None
@@ -147,7 +149,7 @@ class Message:
         self.body = self.re_body.match(self._message).group(0)
 
 
-class RawMessage(Message):
+class RawSipMessage(SipMessage):
     """
     A Completely user defined message.
     """
@@ -166,7 +168,7 @@ class RawMessage(Message):
         """
 
 
-class Register(Message):
+class Register(SipMessage):
     _expires_line = "Expires: %(registration_expiry)s"
 
     def __init__(self, transaction, registration_expiry=3600):
@@ -179,22 +181,22 @@ class Register(Message):
         self.registration_expiry = self.re_expires.match(self._message).group(0)
 
 
-class Invite(Message):
+class Invite(SipMessage):
     def __init__(self, transaction):
         super(Invite, self).__init__(transaction, "INVITE")
 
 
-class Trying(Message):
+class Trying(SipMessage):
     def __init__(self, transaction):
         super(Trying, self).__init__(transaction, "TRYING", response_number=100)
 
 
-class Ringing(Message):
+class Ringing(SipMessage):
     def __init__(self, transaction):
         super(Ringing, self).__init__(transaction, "RINGING", response_number=180)
 
 
-class Ok(Message):
+class Ok(SipMessage):
     def __init__(self, transaction):
         super(Ok, self).__init__(transaction, "OK", response_number=200)
 
@@ -208,21 +210,21 @@ message_mapping = {
 }
 
 
-def message_factory(transaction, raw_message):
+def message_factory(transaction: Transaction, raw_message: str) -> SipMessage:
     """
     Takes a raw SIP message, finds the message type and then returns a corresponding object to represent that message
-    :param transaction.Transaction transaction:
-    :param str raw_message:
-    :return Message:
+    :param transaction:
+    :param raw_message:
+    :return:
     """
 
     # Find the message type in the first line of the message. First line only because the CSeq line also matches.
-    message_type = Message.re_message_type.match(raw_message.split("\n")[0])
+    message_type = SipMessage.re_message_type.match(raw_message.split("\n")[0])
 
     if message_type in message_mapping.keys():
         new_message = message_mapping[message_type](transaction)
         new_message.message = raw_message
     else:
-        new_message = RawMessage(transaction, raw_message)
+        new_message = RawSipMessage(transaction, raw_message)
 
     return new_message
