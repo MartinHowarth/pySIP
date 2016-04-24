@@ -5,6 +5,7 @@ from sip_stack.framework.call import Call
 class CallHandler:
     def __init__(self, call: Call):
         self.call = call
+
         # Todo: implement listeners to notify when messages are sent and received
 
     def send_message(self, message_type: SipMessage):
@@ -13,5 +14,4 @@ class CallHandler:
         :param message_type: Type of SIP message to send
         :return:
         """
-
-        pass
+        new_message = self.call.new_message(message_type)

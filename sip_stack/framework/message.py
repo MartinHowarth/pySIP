@@ -210,7 +210,7 @@ message_mapping = {
 }
 
 
-def message_factory(transaction: Transaction, raw_message: str) -> SipMessage:
+def parse_from_raw(transaction: Transaction, raw_message: str) -> SipMessage:
     """
     Takes a raw SIP message, finds the message type and then returns a corresponding object to represent that message
     :param transaction:
@@ -226,5 +226,19 @@ def message_factory(transaction: Transaction, raw_message: str) -> SipMessage:
         new_message.message = raw_message
     else:
         new_message = RawSipMessage(transaction, raw_message)
+
+    return new_message
+
+
+def message_factory(transaction: Transaction, message_type: str) -> SipMessage:
+    """
+    Construct a message of a given type.
+    :param transaction:
+    :param message_type: String name of the message, must be in the message_mapping
+    :return:
+    """
+    message_class = message_mapping[message_type]
+
+    new_message = message_class(transaction)
 
     return new_message

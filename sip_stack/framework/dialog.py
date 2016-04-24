@@ -31,9 +31,10 @@ class Dialog:
 
         self.transactions = {}  # branch: transaction.Transaction
 
-    def new_transaction(self, branch=None):
+    def new_transaction(self, branch=None) -> transaction.Transaction:
         new_transaction = transaction.Transaction(self, branch)
         self.transactions[new_transaction.branch] = new_transaction
+        return transaction
 
     def parse_message(self, raw_message):
         """
@@ -45,3 +46,7 @@ class Dialog:
         branch = self.re_branch.match(raw_message).group(0)
         self.new_transaction(branch)
         self.transactions[branch].parse_message(raw_message)
+
+    def new_message(self, message_type):
+        new_transaction = self.new_transaction()
+        return new_transaction.new_message(message_type)

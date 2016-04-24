@@ -3,7 +3,7 @@ from abc import abstractmethod
 from scenario.exceptions import MessageOutOfOrderException, MessageFailedVerificationException
 from sip_stack.framework.message import SipMessage
 from sip_stack.logic.useragent import UserAgentHandler
-from default_locals import local_endpoint as _local_endpoint
+from settings import local_endpoint as _local_endpoint
 
 
 class Scenario:

@@ -27,4 +27,7 @@ class Transaction:
         Takes a SIP message and creates a message.Message object to represent it.
         :param raw_message:
         """
-        self.messages.append(message.message_factory(self, raw_message))
+        self.messages.append(message.parse_from_raw(self, raw_message))
+
+    def new_message(self, message_type):
+        return self.messages.append(message.message_factory(self, message_type))

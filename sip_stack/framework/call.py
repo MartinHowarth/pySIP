@@ -38,9 +38,10 @@ class Call:
 
         self.dialogs = {}  # From_tag: dialog.Dialog
 
-    def new_dialog(self, from_tag: str=None):
+    def new_dialog(self, from_tag: str=None) -> Dialog:
         new_dialog = Dialog(self, from_tag)
         self.dialogs[new_dialog.from_tag] = new_dialog
+        return new_dialog
 
     def parse_message(self, raw_message: str):
         """
@@ -56,3 +57,7 @@ class Call:
         else:
             self.new_dialog(from_tag)
             self.dialogs[from_tag].parse_message(raw_message)
+
+    def new_message(self, message_type):
+        new_dialog = self.new_dialog()
+        return new_dialog.new_message(message_type)
