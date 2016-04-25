@@ -1,12 +1,15 @@
 from sip_stack.framework.message import SipMessage
 from sip_stack.framework.call import Call
+from sip_stack.handler.connection import Connection
 
 
 class CallHandler:
-    def __init__(self, call: Call):
+    def __init__(self, call: Call, connection: Connection):
         self.call = call
+        self.connection = connection
+        self.connection.register_listener(self.receive_data)
 
-        # Todo: implement listeners to notify when messages are sent and received
+        self.data_buffer = ""
 
     def send_message(self, message_type: SipMessage):
         """
@@ -15,3 +18,17 @@ class CallHandler:
         :return:
         """
         new_message = self.call.new_message(message_type)
+
+    def receive_data(self, data: str):
+        """
+        Receives data asynchronously.
+        :param data:
+        """
+        self.data_buffer += data
+
+    def handle(self):
+        """
+        Do the work of handling a call.
+        """
+        while True:
+            pass
